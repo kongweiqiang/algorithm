@@ -1,5 +1,6 @@
 package com.kwq.algorithm.algorithmics.stack;
 
+import java.util.HashMap;
 import java.util.Stack;
 
 /**
@@ -64,9 +65,32 @@ public class Solution {
         return sum;
     }
 
+    /**
+     * @number 20
+     * @desc 给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串，判断字符串是否有效
+     * @param s
+     * @return
+     */
+    public boolean isValid(String s) {
+        HashMap<Character, Character> map = new HashMap<Character, Character>(3);
+        map.put(')','(');
+        map.put('}','{');
+        map.put(']','[');
+        Stack<Character> stack = new Stack<Character>();
+        for(int i =0 ; i<s.length();i++){
+            if(!stack.empty() && stack.peek().equals(map.get(s.charAt(i)))){
+                stack.pop();
+            }else{
+                stack.push(s.charAt(i));
+            }
+        }
+        return stack.empty();
+    }
+
+
     public static void main(String[] args) {
         Solution solution = new Solution();
-        int sum = 0;
+        /*int sum = 0;
         //int [] height = {1,8,6,2,5,4,8,3,7};
         int [] height = {1,2};
         //int sum = solution.maxAreaSum(height);
@@ -76,7 +100,11 @@ public class Solution {
         //System.out.println("SUM : " + sum);
         int [][] arrs = {{1,4,3,1,3,2},{3,2,1,3,2,4},{2,3,3,2,3,1}};
         sum = solution.trapRainWater(arrs);
-        System.out.println("SUM : " + sum);
+        System.out.println("SUM : " + sum);*/
+        String s1="()[]{}";
+        String s2 = "([)]";
+        System.out.println(solution.isValid(s1));
+        System.out.println(solution.isValid(s2));
     }
 
 
