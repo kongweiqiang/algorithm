@@ -1,0 +1,44 @@
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    joda-date-time-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+  mvc:
+    servlet:
+      load-on-startup: 1
+  aop:
+    proxy-target-class: true
+  datasource:
+    readSize: 1
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://127.0.0.1:3306/algorithm?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+    username: algorithm
+    password: algorithm
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    min-evictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: true
+    testOnReturn: false
+    poolPreparedStatements: true
+    useGlobalDataSourceStat: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    filters: stat,wall
+    WebStatFilter:
+      exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+      enabled: true
+      urlPattern: '/*'
+    StatViewServlet:
+      enabled: true
+      urlPattern: '/druid/*'
+      loginUsername: druid
+      loginPassword: druid
