@@ -1,0 +1,18 @@
+package com.kwq.algorithm.model;
+
+/**
+ * @auther : kongweiqiang
+ * @DATE : 2020/8/17
+ * @DESC :
+ */
+public class TreeNode {
+
+    public int val;
+
+    public TreeNode left;
+
+    public TreeNode right;
+
+    public TreeNode(int x) { val = x; }
+
+}

@@ -1,6 +1,7 @@
 package com.kwq.algorithm.algorithmics.recursion;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -17,6 +18,7 @@ public class Solution {
         //System.out.println(solution.kthGrammar(5, 4));//1
         System.out.println(solution.myPow(0.00001d,10));
         System.out.println(solution.myPow(2.000d,-2));
+        solution.divingBoard(1,2,4);
     }
 
     /** 跳水板
@@ -28,15 +30,23 @@ public class Solution {
      * @param k 正好使用的木板数
      * @return 所有可能的使用木板数集
      */
-    public Integer[] divingBoard(int shorter, int longer, int k) {
-        Set<Integer> set = new TreeSet<Integer>();
-        for(int i = 1;i<k;i++){
-            set.add(i*shorter);
-            set.add(i*longer);
-            set.add(i*(shorter+longer));
+    public int[] divingBoard(int shorter, int longer, int k) {
+        Set<Integer> set = new TreeSet<>();
+        Set<Integer> diving = diving(shorter, longer, k, set);
+        return diving.stream().mapToInt(Integer::intValue).toArray();
+    }
+
+    private Set<Integer> diving(int shorter, int longer, int k,Set<Integer> set){
+        if(k <= 0) return set;
+        if(k == 1){
+            set.add(shorter);
+            set.add(longer);
+            return set;
         }
-        Integer[] result = (Integer[]) set.toArray();
-        return result;
+        for (int i = 0; i < k; i++) {
+            set.add(shorter*i + (k-i)*longer);
+        }
+        return set;
     }
 
     /** 779. 第K个语法符号
@@ -86,7 +96,7 @@ public class Solution {
             return false;
         }
         //计算
-        return false;
+        return true;
     }
 
     /**
@@ -124,6 +134,23 @@ public class Solution {
             return x;
         }
         return x*myPowHelp(x,n-1);
+    }
+
+    /** @number 剑指 Offer 10- II. 青蛙跳台阶问题 && 70. 爬楼梯
+     * @desc 一只青蛙一次可以跳上1级台阶，也可以跳上2级台阶。求该青蛙跳上一个 n 级的台阶总共有多少种跳法。
+     * 答案需要取模 1e9+7（1000000007），如计算初始结果为：1000000008，请返回 1
+     */
+    private HashMap<Integer,Integer> map = new HashMap<Integer,Integer>();
+    private int mod = 1000000007;
+    public int numWays(int n) {
+        if(n == 0) return 1;
+        if(n == 1) return 1;
+        if(!map.isEmpty() && map.containsKey(n)){
+            return map.get(n);
+        }
+        int sum = Math.floorMod(numWays(n - 1) + numWays(n - 2),mod);
+        map.put(n,sum);
+        return sum;
     }
 
 }
