@@ -14,28 +14,25 @@ public class BTreeSearchMain {
 
     public static void main(String[] args) {
         BTree bTree = new BTree();
-        bTree.setData("90");
+        bTree.setData("1");
         BTree bTree1 = new BTree();
-        bTree1.setData("69");
-        BTree bTree2 = null;
-        //bTree2.setData("69");
+        bTree1.setData("2");
+        BTree bTree2 = new BTree();
+        bTree2.setData("3");
         BTree bTree3 = new BTree();
-        bTree3.setData("49");
+        bTree3.setData("4");
         BTree bTree4 = new BTree();
-        bTree4.setData("89");
-        BTree bTree5 = null;
-        //bTree5.setData("89");
-        BTree bTree6 = null;
-        //bTree6.setData("1");
-        BTree bTree7 = new BTree();
-        bTree7.setData("52");
+        bTree4.setData("5");
+        BTree bTree5 = new BTree();
+        bTree5.setData("6");
+        BTree bTree6 = new BTree();
+        bTree6.setData("7");
         bTree.setLeft(bTree1);
         bTree.setRight(bTree2);
         bTree1.setLeft(bTree3);
-        bTree1.setRight(bTree4);
-//        bTree3.setLeft(bTree5);
-//        bTree3.setRight(bTree6);
-        bTree3.setRight(bTree7);
+        bTree2.setLeft(bTree4);
+        bTree3.setRight(bTree5);
+        bTree4.setLeft(bTree6);
         BTreeSearch bTreeSearch = new BTreeSearch();
         ArrayList<BTree> pre = new ArrayList<>();
         ArrayList<BTree> mid = new ArrayList<>();
@@ -56,5 +53,9 @@ public class BTreeSearchMain {
         */
         int min = bTreeSearch.minDiffInBST(bTree);
         System.out.println(min+"----"+bTreeSearch.min);
+
+        // 求左侧路径最大值
+        bTreeSearch.tranval(bTree,bTreeSearch.maxDepth);
+        System.out.println("max left path value : "+bTreeSearch.left.getData());
     }
 }
