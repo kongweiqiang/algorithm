@@ -204,6 +204,19 @@ public class BTreeSearch {
         return result;
     }
 
+    /**
+     * 700.二叉搜索树中的搜索
+     * @num 700.二叉搜索树中的搜索
+     * @desc 给定二叉搜索树（BST）的根节点和一个值。你需要在BST中找到节点值等于给定值的节点。返回以该节点为根的子树。如果节点不存在，则返回 NULL。
+     */
+    public TreeNode searchBST(TreeNode root, int val) {
+        if(root == null || root.val == val) return root;
+        if (root.val>val) return searchBST(root.left,val);
+        if (root.val<val) return searchBST(root.right,val);
+        return null;
+    }
+
+
     public static void main(String[] args) {
         BTreeSearch bTreeSearch = new BTreeSearch();
         TreeNode root = new TreeNode(1);
