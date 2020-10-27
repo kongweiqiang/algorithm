@@ -57,7 +57,18 @@ public class BTreeSearch {
         return list;
     }
 
-
+//    //层序遍历
+//​   public void levelSearch(TreeNode root) {
+//        if(root == null) return;
+//        Queue<TreeNode> queue = new LinkedList<>();
+//        queue.offer(root);//add
+//        while (!queue.isEmpty()) {
+//            TreeNode front = queue.poll();//return and remove
+//            System.out.println(front.val);
+//            if (front.left != null) queue.offer(front.left);//add
+//            if (front.right != null) queue.offer(front.right);//add
+//        }
+//    }
 
     //最大深度
     public int maxDepth(BTree bTree){
