@@ -36,8 +36,8 @@ public class BackTrack_77 {
             return ;
         }
         for (int i = startIndex; i < n; i++) {
+        //for (int i = startIndex; i <= n - (k - result.size()) + 1; i++) { // 剪枝: 后面的集合的元素数量不足以查找到结果
             item.add(param[i]);
-            int maxIndex = item.size() - 1;
             back(n,k,i+1,param,item,result);
             item.remove(item.size() - 1);// **** 回溯
         }
