@@ -1,13 +1,12 @@
-package com.kwq.algorithm.algorithmics.array;
+package com.kwq.algorithm.algorithmics.sort;
 
 /**
  * @auther : kongweiqiang
  * @DATE : 2020/11/1
- * @DESC :
+ * @DESC : 快排
+ * @idea: 挖坑填数+分治法
  */
-public class Sort {
-
-
+public class QuickSort {
 
     /**
      * 快排 : 两边同时收缩,交互
@@ -18,9 +17,9 @@ public class Sort {
      */
     public void quickSort(int [] array,int left,int right){
         if(left >= right || right - left == 1) return;
-        int partion = partion(array,left,right);
-        quickSort(array,left,partion-1);
-        quickSort(array,partion,right);
+        int pivot = partion(array,left,right);//基准值索引位
+        quickSort(array,left,pivot-1);
+        quickSort(array,pivot,right);
     }
 
     public int partion(int [] array,int left,int right){
@@ -49,7 +48,7 @@ public class Sort {
         array[end] = temp;
     }
 
-    private void print(int [] array){
+    public static void print(int [] array){
         for (int i = 0; i < array.length; i++) {
             System.out.print(i == array.length-1 ? array[i]: (array[i] + " -> "));
         }
@@ -59,8 +58,8 @@ public class Sort {
 
     public static void main(String[] args) {
         int [] array = {1,4,6,9,10,2,3,5,8,7};
-        Sort sort = new Sort();
+        QuickSort sort = new QuickSort();
         sort.quickSort(array,0,array.length-1);
-        sort.print(array);
+        print(array);
     }
 }
