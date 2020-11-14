@@ -21,7 +21,7 @@ public class Equal {
         System.out.println(s2 == s2.intern());//false
 
         System.out.println("----------intern----------");
-        //String对象的intern方法会得到字符串对象在常量池中对应的版本的引用（如果常量池中有一个字符串与String对象的equals结果是true），如果常量池中没有对应的字符串，则该字符串将被添加到常量池中，然后返回常量池中字符串的引用
+        //String对象的intern方法会得到字符串对象在常量池中对应的版本的引用(如果常量池中有一个字符串与String对象的equals结果是true)，如果常量池中没有对应的字符串，则该字符串将被添加到常量池中，然后返回常量池中字符串的引用
         String s7 = new StringBuilder("go").append("od").toString();
         System.out.println(s7.intern() == s7);//true
         String s8 = new StringBuilder("ja").append("va").toString();

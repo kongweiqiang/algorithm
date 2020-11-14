@@ -79,7 +79,7 @@ public class Solution {
      * @param k
      * @eg  输入： nums = [4, 3, 2, 3, 5, 2, 1], k = 4
      *      输出： True
-     *      说明： 有可能将其分成 4 个子集（5），（1,4），（2,3），（2,3）等于总和
+     *      说明： 有可能将其分成 4 个子集(5)，(1,4)，(2,3)，(2,3)等于总和
      * @return
      */
     public boolean canPartitionKSubsets(int[] nums, int k) {
@@ -138,7 +138,7 @@ public class Solution {
 
     /** @number 剑指 Offer 10- II. 青蛙跳台阶问题 && 70. 爬楼梯
      * @desc 一只青蛙一次可以跳上1级台阶，也可以跳上2级台阶。求该青蛙跳上一个 n 级的台阶总共有多少种跳法。
-     * 答案需要取模 1e9+7（1000000007），如计算初始结果为：1000000008，请返回 1
+     * 答案需要取模 1e9+7(1000000007)，如计算初始结果为：1000000008，请返回 1
      */
     private HashMap<Integer,Integer> map = new HashMap<Integer,Integer>();
     private int mod = 1000000007;

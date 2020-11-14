@@ -202,7 +202,7 @@ public class BTreeSearch {
      * 1
      *
      * 解释：
-     * 最小绝对差为 1，其中 2 和 1 的差的绝对值为 1（或者 2 和 3）。
+     * 最小绝对差为 1，其中 2 和 1 的差的绝对值为 1(或者 2 和 3)。
      */
     private int result = Integer.MAX_VALUE;
     private TreeNode preNode = new TreeNode(result);
@@ -218,7 +218,7 @@ public class BTreeSearch {
     /**
      * 700.二叉搜索树中的搜索
      * @num 700.二叉搜索树中的搜索
-     * @desc 给定二叉搜索树（BST）的根节点和一个值。你需要在BST中找到节点值等于给定值的节点。返回以该节点为根的子树。如果节点不存在，则返回 NULL。
+     * @desc 给定二叉搜索树(BST)的根节点和一个值。你需要在BST中找到节点值等于给定值的节点。返回以该节点为根的子树。如果节点不存在，则返回 NULL。
      */
     public TreeNode searchBST(TreeNode root, int val) {
         if(root == null || root.val == val) return root;
