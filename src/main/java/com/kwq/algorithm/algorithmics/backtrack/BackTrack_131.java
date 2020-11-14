@@ -19,6 +19,25 @@ public class BackTrack_131 {
         return result;
     }
 
+    /**
+     * 131.分割回文串
+     * @link https://leetcode-cn.com/problems/palindrome-partitioning/
+     * @desc 给定一个字符串 s，将 s 分割成一些子串，使每个子串都是回文串。
+     *
+     * 返回 s 所有可能的分割方案。
+     *
+     * @示例:
+     * 输入: "aab"
+     * 输出:
+     * [
+     * ["aa","b"],
+     * ["a","a","b"]
+     * ]
+     * @param s 字符串
+     * @param index 开始查找匹配位置
+     * @param item 匹配项
+     * @param result 匹配结果集
+     */
     private void back(String s,int index,List<String> item,List<List<String>> result){
         if(index == s.length()){
             result.add(new ArrayList<>(item));
