@@ -38,3 +38,8 @@ void backtracking(参数) {
     }
 }
 */
+/**
+   去重模板
+      // boolean used[i - 1] == true， 说明同一树支candidates[i - 1]使用过同一个元素值
+      // boolean used[i - 1] == false，说明同一树层candidates[i - 1]使用过同一个元素值
+*/
