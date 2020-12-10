@@ -2,7 +2,6 @@ package com.kwq.algorithm.algorithmics.btree;
 
 import com.kwq.algorithm.model.TreeNode;
 
-import javax.net.ssl.HostnameVerifier;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,9 +63,9 @@ public class TreeAlgorithm {
 
     /**
      * @number 08.06. 汉诺塔问题
-     * @param A
-     * @param B
-     * @param C
+     * @param a
+     * @param b
+     * @param c
      * @eg input:A = [2, 1, 0], B = [], C = []    output:C = [2, 1, 0]
      */
     public void hanota(List<Integer> a, List<Integer> b, List<Integer> c) {

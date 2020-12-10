@@ -1,5 +1,7 @@
 package com.kwq.algorithm.algorithmics.array;
 
+import com.kwq.algorithm.algorithmics.sort.QuickSort;
+
 import java.util.*;
 
 /**
@@ -36,6 +38,6 @@ public class Array_349 {
         int [] b = {2,2};
         Array_349 main = new Array_349();
         int[] result = main.intersection(a, b);
-        System.out.println(result);
+        QuickSort.print(result);
     }
 }

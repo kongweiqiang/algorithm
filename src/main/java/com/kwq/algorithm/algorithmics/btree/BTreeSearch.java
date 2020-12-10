@@ -3,7 +3,9 @@ package com.kwq.algorithm.algorithmics.btree;
 import com.kwq.algorithm.model.BTree;
 import com.kwq.algorithm.model.TreeNode;
 
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 /**
  * @auther : kongweiqiang
@@ -57,18 +59,23 @@ public class BTreeSearch {
         return list;
     }
 
-//    //层序遍历
-//​   public void levelSearch(TreeNode root) {
-//        if(root == null) return;
-//        Queue<TreeNode> queue = new LinkedList<>();
-//        queue.offer(root);//add
-//        while (!queue.isEmpty()) {
-//            TreeNode front = queue.poll();//return and remove
-//            System.out.println(front.val);
-//            if (front.left != null) queue.offer(front.left);//add
-//            if (front.right != null) queue.offer(front.right);//add
-//        }
-//    }
+
+    public static void levelSearch(TreeNode root){
+        if(root == null) return;
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        while(!queue.isEmpty()){
+            TreeNode next = queue.poll();
+            System.out.println(next.val);
+            if(next.left != null){
+                queue.offer(next.left);
+            }
+            if(next.right != null){
+                queue.offer(next.right);
+            }
+            queue.peek();
+        }
+    }
 
     //最大深度
     public int maxDepth(BTree bTree){

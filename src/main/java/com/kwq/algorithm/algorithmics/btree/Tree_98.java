@@ -16,11 +16,20 @@ public class Tree_98 {
         TreeNode root15 = new TreeNode(15);
         TreeNode root6 = new TreeNode(6);
         TreeNode root20 = new TreeNode(20);
+        TreeNode root21 = new TreeNode(21);
+        TreeNode root22 = new TreeNode(22);
+        TreeNode root23 = new TreeNode(23);
+        TreeNode root24 = new TreeNode(24);
         root10.left = root5;
         root10.right = root15;
         root15.left = root6;
         root15.right = root20;
+        root5.right = root21;
+        root21.left = root23;
+        root20.right = root22;
+        root22.right = root24;
         System.out.println(tree.isValidBST(root10));
+        BTreeSearch.levelSearch(root10);
     }
 
     /**  98. 验证二叉搜索树
