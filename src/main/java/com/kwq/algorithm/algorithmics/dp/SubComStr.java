@@ -1,4 +1,4 @@
-package com.kwq.algorithm.dynamic.program;
+package com.kwq.algorithm.algorithmics.dp;
 
 import java.util.TreeSet;
 

@@ -6,17 +6,19 @@ package com.kwq.algorithm.algorithmics.sort;
  * @DESC :
  */
 public class QuickSort2 {
+
     public static void quickSortHelp(int[] arr) {
         quickSort(arr,0, arr.length-1);
     }
+
     public static void quickSort(int[] arr,int low, int high) {
         if(low<high) {
-            int partition = partition(arr,low,high);
-            quickSort(arr,low, partition-1);
-            quickSort(arr,partition+1, high);
+            int partition = partition(arr, low, high);
+            quickSort(arr, low, partition - 1);
+            quickSort(arr, partition + 1, high);
         }
-
     }
+
     public static int partition(int[] arr,int low,int high) {
         while(low<high) {
             while(arr[high]>=arr[low]&&low<high){

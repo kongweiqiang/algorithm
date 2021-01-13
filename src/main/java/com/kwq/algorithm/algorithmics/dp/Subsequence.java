@@ -1,4 +1,4 @@
-package com.kwq.algorithm.dynamic.program;
+package com.kwq.algorithm.algorithmics.dp;
 
 /**
  * @auther : kongweiqiang

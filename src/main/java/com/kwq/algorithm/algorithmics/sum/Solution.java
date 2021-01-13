@@ -1,6 +1,7 @@
 package com.kwq.algorithm.algorithmics.sum;
 
 import com.kwq.algorithm.model.ListNode;
+import com.kwq.algorithm.model.TreeNode;
 
 import java.util.*;
 
@@ -11,16 +12,23 @@ import java.util.*;
  */
 public class Solution {
     public static void main(String[] args) {
-        Solution solution = new Solution();
+        Solution main = new Solution();
         /*
+        int sum = 9;
+        int[] result = main.twoSum2(new int[]{2, 7, 11, 15}, sum);
+        System.out.println(result[0] + " + " + result[1] + " --> " + sum);
+        */
+
         int[] arr = {2,7,11,15};
        //int[] arrs = {-1, 0, 1, 2, -1, -4};
         int[] arrs = {-4,-2,1,-5,-4,-4,4,-2,0,4,0,-2,3,1,-5,0};
         int sum = 9;
-        int [] twoSum = solution.twoSum(arr,sum);
-        List result = solution.threeSum(arrs,0);
-        System.out.println(twoSum[0]+"+"+twoSum[1]);
-        */
+        //int [] twoSum = main.twoSum(arr,sum);
+        List result = main.threeSum(arrs,0);
+        List result2 = main.threeSum2(arrs,0);
+        //System.out.println(twoSum[0]+"+"+twoSum[1]);
+        System.out.println();
+
         /*
         ListNode node1 = new ListNode(9);
         node1.next = new ListNode(2);
@@ -32,7 +40,21 @@ public class Solution {
         ListNode listNode = solution.addTwoNumbersSuffix(node1, node2);
         System.out.println(listNode);
         */
-
+        /*
+        TreeNode n2 = new TreeNode(2);
+        TreeNode n4 = new TreeNode(4);
+        TreeNode n7 = new TreeNode(7);
+        TreeNode n3 = new TreeNode(3,n2,n4);
+        TreeNode n6 = new TreeNode(6,null,n7);
+        TreeNode n5 = new TreeNode(5,n3,n6);
+        System.out.println(main.findTarget(n5, 9));//true
+        System.out.println(main.findTarget(n5, 28));//false
+        TreeNode n1 = new TreeNode(1);
+        n3 = new TreeNode(3,null,null);
+        n2 = new TreeNode(2,n1,n3);
+        System.out.println(main.findTarget(n2, 4));//true
+        System.out.println(main.findTarget(n1, 2));//false
+        */
     }
 
     public String multiply(String num1, String num2) {
@@ -68,6 +90,47 @@ public class Solution {
             }
         }
         return solution;
+    }
+
+    /** 两数之和
+     * @number 167
+     * @param numbers
+     * @param target
+     * @return
+     */
+    public int[] twoSum2(int[] numbers, int target) {
+        if(numbers == null || numbers.length == 0) return null;
+        int l = 0,r = numbers.length - 1;
+        while(l <= r){
+            if(numbers[l] + numbers[r] == target){
+                break;
+            }else if(numbers[l] + numbers[r] > target){
+                r--;
+            }else{
+                l++;
+            }
+        }
+        return new int[]{l,r};
+    }
+
+    /** 两数之和
+     * @number 653
+     * @param root 树
+     * @param k 数和
+     * @return 是否存在两数之和
+     * @eg
+     *  [2, 1, 3] 4 ----> true
+     *  [1] 2 ----> false
+     */
+    public Set<Integer> set = new TreeSet<>();
+
+    public boolean findTarget(TreeNode root, int k) {
+        if(root == null) return false;
+        boolean left = findTarget(root.left, k);
+        if(set.contains(k - root.val)) return true;
+        set.add(root.val);
+        boolean right = findTarget(root.right,k);
+        return left || right;
     }
 
     /**
@@ -111,6 +174,39 @@ public class Solution {
             }
         }
         return list;
+    }
+
+    public List<List<Integer>> threeSum2(int[] nums,int sum) {
+        List<List<Integer>> result = new ArrayList<>();
+        if(nums == null || nums.length<3){
+            return result;
+        }
+        //排序使得已获得的答案不重复
+        Arrays.sort(nums);
+        int target = 0,left = 0,right = nums.length - 1;
+        while(left < right){
+            if( left > 0 && nums[left - 1] == nums[left]){
+                left++;
+                continue;
+            }
+            target = sum - nums[left];
+            int mid = left + 1;
+            while(mid < right){
+                if(mid > left + 1 && nums[mid - 1] == nums[mid]){
+                    mid++;
+                    continue;
+                }
+                if (nums[mid] + nums[right] == target) {
+                    result.add(new ArrayList<>(Arrays.asList(nums[left],nums[mid++],nums[right])));
+                }else if(nums[mid] + nums[right] > target){
+                    right--;
+                }else{
+                    mid++;
+                }
+            }
+            left++;
+        }
+        return result;
     }
 
     /**

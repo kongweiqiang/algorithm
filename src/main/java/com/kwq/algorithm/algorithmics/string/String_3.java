@@ -41,5 +41,8 @@ public class String_3 {
         int sum0 = string3.lengthOfLongestSubstring(s0);
         int sum1 = string3.lengthOfLongestSubstring(s1);
         int sum2 = string3.lengthOfLongestSubstring(s2);
+        System.out.println(sum0);
+        System.out.println(sum1);
+        System.out.println(sum2);
     }
 }
