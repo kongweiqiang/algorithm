@@ -36,7 +36,7 @@ public class Dp_63 {
 
     public static void main(String[] args) {
         Dp_63 main = new Dp_63();
-        System.out.println(main.uniquePathsWithObstacles(new int[][]{{0, 1}, {0, 0}}));
+        System.out.println(main.uniquePathsWithObstacles(new int[][]{{0, 1, 0, 0}, {0, 0, 0, 0}, {0, 1, 0, 0}, {0, 1, 0, 0}}));
         System.out.println(main.uniquePathsWithObstacles(new int[][]{{0, 1}, {0, 0}}));
     }
 }
